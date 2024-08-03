@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flask CRUD - Update</title>
+</head>
+<body>
+    <header>
+        <h1>Flask CRUD Application</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('create') }}">Create New Item</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Update Car</h2>
+        <form  class="create-form" action="{{ url_for('update', id=item.id) }}" method="post">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" id="id" name="id" value="{{ item.id }}" readonly><br>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ item.name }}"><br>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+            <input type="number" id="year" name="year" value="{{ item.year }}"><br>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+            <input type="number" id="price" name="price" value="{{ item.price }}"><br>
+            </div><br><br>
+            <button type="submit">Update</button>
+        </form>
+    </main>
+</body>
+</html>
